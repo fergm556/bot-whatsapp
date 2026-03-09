@@ -273,3 +273,4 @@ client.initialize();
 
 // Mantener terminal abierta si lo ejecutas localmente (opcional)
 process.stdin.resume();
+
