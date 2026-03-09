@@ -2,7 +2,24 @@ const qrcode = require('qrcode-terminal');
 const { Client, LocalAuth } = require('whatsapp-web.js');
 
 // Crear cliente
+// Crear cliente
 const client = new Client({
+  authStrategy: new LocalAuth({
+    clientId: "fer-bot"
+  }),
+  puppeteer: {
+    headless: true,
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage',
+      '--single-process',
+      '--no-zygote'
+    ]
+    // Si alguna vez usas un ejecutable Chromium personalizado puedes añadir:
+    // executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined
+  }
+});
     authStrategy: new LocalAuth({
         clientId: "fer-bot"
     }),
@@ -263,3 +280,4 @@ Cerrar con: !poll close`;
 client.initialize();
 
    
+
